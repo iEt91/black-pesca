@@ -7,7 +7,7 @@ const config = {
     clientId: process.env.TWITCH_CLIENT_ID,
     clientSecret: process.env.TWITCH_CLIENT_SECRET,
     token: process.env.TWITCH_TOKEN,
-    channel: 'tangov91',
+    channel: 'blackelespanolito',
   },
 };
 
