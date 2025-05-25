@@ -155,7 +155,7 @@ function mostrarRanking(channel) {
 
   const usuarios = Object.entries(atracosDB);
   if (usuarios.length === 0) {
-    client.say(channel, '🏆 No hay puntajes registrados aún. ¡Usa !atraco para empezar!');
+    client.say(channel, '🏆 No hay puntajes registrados aún. ¡Usa !atracar para empezar!');
     return;
   }
 
@@ -184,7 +184,7 @@ client.on('message', async (channel, tags, message, self) => {
       return;
     }
     atracosActivos = true;
-    client.say(channel, 'yellowcase ¡El sistema de atracos ha comenzado! Usa !atraco para intentarlo.');
+    client.say(channel, 'yellowcase ¡El sistema de atracos ha comenzado! Usa !atracar para intentarlo.');
     console.log('✅ Sistema de atracos activado');
     return;
   }
@@ -216,7 +216,7 @@ client.on('message', async (channel, tags, message, self) => {
     return;
   }
 
-  if (message.trim().toLowerCase() !== '!atraco') return;
+  if (message.trim().toLowerCase() !== '!atracar') return;
 
   if (!atracosActivos) {
     return;
@@ -227,7 +227,7 @@ client.on('message', async (channel, tags, message, self) => {
 
   if ((currentTime - lastTime) / 1000 < COOLDOWN_ATRACO) {
     const remainingTime = Math.ceil(COOLDOWN_ATRACO - (currentTime - lastTime) / 1000);
-    client.say(channel, `${username}, espera ${remainingTime} segundos antes de intentar otro atraco.`);
+    client.say(channel, `${username}, espera ${remainingTime} segundos antes de intentar atracar nuevamente.`);
     return;
   }
 
@@ -273,19 +273,19 @@ client.on('message', async (channel, tags, message, self) => {
   // Mensajes según el tipo de objeto
   switch (tipoObjeto) {
     case 'común':
-      mensaje = `Realizaste un atraco y obtuviste una Mil-Spec Bluecase Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
+      mensaje = `$(user) Atracaste a Black y obtuviste una Mil-Spec Bluecase. Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
       break;
     case 'raro':
-      mensaje = `Realizaste un atraco y obtuviste una Restricted Violetcase Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
+      mensaje = `$(user) Atracaste a Black y obtuviste una Restricted Violetcase. Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
       break;
     case 'ultrararo':
-      mensaje = `Realizaste un atraco y obtuviste una Classified Pinkcase Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
+      mensaje = `$(user) Atracaste a Black y obtuviste una Classified Pinkcase. Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
       break;
     case 'épico':
-      mensaje = `Realizaste un atraco y obtuviste una Covert Redcase Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
+      mensaje = `$(user) Atracaste a Black y obtuviste una Covert Redcase. Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
       break;
     case 'legendario':
-      mensaje = `Realizaste un atraco y obtuviste una UN CUCHILLO!!  Yellowcase Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
+      mensaje = `$(user) Atracaste a Black y obtuviste... ¡UN CUCHILLO! Yellowcase. Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
       break;
   }
 
