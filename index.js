@@ -227,7 +227,7 @@ client.on('message', async (channel, tags, message, self) => {
 
   if ((currentTime - lastTime) / 1000 < COOLDOWN_ATRACO) {
     const remainingTime = Math.ceil(COOLDOWN_ATRACO - (currentTime - lastTime) / 1000);
-    client.say(channel, `${username}, espera ${remainingTime} segundos antes de intentar atracar nuevamente.`);
+    client.say(channel, `@${username}, espera ${remainingTime} segundos antes de intentar atracar nuevamente.`);
     return;
   }
 
@@ -273,19 +273,19 @@ client.on('message', async (channel, tags, message, self) => {
   // Mensajes según el tipo de objeto
   switch (tipoObjeto) {
     case 'común':
-      mensaje = `$(user) Atracaste a Black y obtuviste una Mil-Spec Bluecase. Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
+      mensaje = `@${username}, atracaste y obtuviste una Mil-Spec Bluecase Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
       break;
     case 'raro':
-      mensaje = `$(user) Atracaste a Black y obtuviste una Restricted Violetcase. Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
+      mensaje = `@${username}, atracaste y obtuviste una Restricted Violetcase Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
       break;
     case 'ultrararo':
-      mensaje = `$(user) Atracaste a Black y obtuviste una Classified Pinkcase. Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
+      mensaje = `@${username}, atracaste y obtuviste una Classified Pinkcase Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
       break;
     case 'épico':
-      mensaje = `$(user) Atracaste a Black y obtuviste una Covert Redcase. Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
+      mensaje = `@${username}, atracaste y obtuviste una Covert Redcase  Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
       break;
     case 'legendario':
-      mensaje = `$(user) Atracaste a Black y obtuviste... ¡UN CUCHILLO! Yellowcase. Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
+      mensaje = `@${username}, atracaste y obtuviste... ¡UN CUCHILLO! Yellowcase  Obtienes ${puntos} puntos. Tienes un total de ${atracosDB[username]} puntos`;
       break;
   }
 
